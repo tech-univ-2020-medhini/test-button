@@ -23,8 +23,9 @@ describe('The container component',()=>{
         const mockAxios = jest.spyOn(axios, 'get');
         mockAxios.mockResolvedValue({data:{initialText:'unicorn'}});
 
-        const {getByTestId}= await render(<Container testId='test-cntner' testIdButton='test-btn' testIdTextBox='123'/>)
+        const {getByTestId}=render(<Container testId='test-cntner' testIdButton='test-btn' testIdTextBox='123'/>)
         expect(mockAxios).toHaveBeenCalledWith(url)
         await wait(() => expect(getByTestId('123').value).toBe('unicorn'));
+        await wait(() => expect(getByTestId('test-btn')).toHaveTextContent('unicorn'));
     })
 })
