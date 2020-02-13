@@ -6,6 +6,7 @@ exports[`The TextBox component should render correctly 1`] = `
     <input
       data-testid="123"
       type="text"
+      value=""
     />
   </div>
 </DocumentFragment>

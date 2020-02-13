@@ -8,6 +8,7 @@ exports[`The container component should check if the button component works 1`] 
     <div>
       <input
         type="text"
+        value=""
       />
     </div>
     <button>
