@@ -5,15 +5,18 @@ import {renderHook, act } from '@testing-library/react-hooks';
 import url from '../constants'
 
 describe('the useInput hook', () => {
-    const mockAxios = jest.spyOn(axios,'get');
-    mockAxios.mockResolvedValue({data:{initialText:'123'}})
+    
     it ('should make an api call to fetch defaut text and set it in state', async() => {
+        const mockAxios = jest.spyOn(axios,'get');
+        mockAxios.mockResolvedValue({data:{initialText:'123'}})
         const {result, waitForNextUpdate} = renderHook(() => useInput('defaultValue'))
         await waitForNextUpdate();
         expect(mockAxios).toHaveBeenCalledWith(url);
         expect(result.current[0]).toEqual('123');
     });
     it('should update the text when the setText function is called', async() => {
+        const mockAxios = jest.spyOn(axios,'get');
+        mockAxios.mockResolvedValue({data:{initialText:'123'}})
         const {
             result,
             waitForNextUpdate
