@@ -1,5 +1,5 @@
 import React from 'react';
-import { render, fireEvent, wait } from '@testing-library/react';
+import { render, fireEvent, wait, waitForDomChange } from '@testing-library/react';
 import Container from '../Container';
 import axios from 'axios';
 import url from '../../constants'
@@ -27,5 +27,14 @@ describe('The container component',()=>{
         expect(mockAxios).toHaveBeenCalledWith(url)
         await wait(() => expect(getByTestId('123').value).toBe('unicorn'));
         await wait(() => expect(getByTestId('test-btn')).toHaveTextContent('unicorn'));
+    })
+    it('Should disable the text when the disabled is true', () => {
+        const mockAxios = jest.spyOn(axios, 'get');
+        mockAxios.mockResolvedValue({data:{initialText:'unicorn'}});
+
+        const {getByTestId}=render(<Container testId='test-cntner' testIdButton='test-btn' testIdTextBox='123'/>)
+
+        expect(getByTestId('123').disabled).toBe(true);
+        waitForDomChange()
     })
 })

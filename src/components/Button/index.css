@@ -1,9 +1,10 @@
-.round{
-    border-radius: 50%;
+.rect{
+    color: white;
     background-color: black;
-    color: beige;
 }
 
-.rect{
-    border: solid 1rem;
+.round{
+    color: white;
+    background-color: black;
+    border-radius:50%;
 }
