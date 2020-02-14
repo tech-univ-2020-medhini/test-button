@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import Button from '../Button';
 import TextBox from '../TextBox';
 import useInput from '../../hooks/useInput'
@@ -13,7 +13,7 @@ const Container = (props) => {
     return (
         <div data-testid={testId}>
             <TextBox onChange={(onChange)} testId={testIdTextBox} value = {text}/>
-            <Button text={text} buttonType="round" testId={testIdButton}/>
+            <Button text={text} buttonType="round" testId={testIdButton} click = {() => {}}/>
         </div>
     );
 }
